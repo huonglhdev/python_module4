@@ -104,11 +104,14 @@ def on_key_up(key):
         update_dancer(3)
     return
 
+music.play('vanishing-horizon')
 def update():
     global game_over, current_move, moves_complete
     if not game_over:
         if moves_complete:
             moves_complete = False
             current_move = 0
+    else:
+        music.stop()
 
 pgzrun.go()

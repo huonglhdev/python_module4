@@ -1,4 +1,5 @@
 from random import randint
+from pgzero import music
 import pgzrun
 
 WIDTH = 800
@@ -179,7 +180,7 @@ def on_key_up(key):
     return
 
 generate_moves()
-#music.play('vanishing-horizon')
+music.play('vanishing-horizon')
 def update():
     global game_over, current_move, moves_complete
     if not game_over:
@@ -187,7 +188,7 @@ def update():
             generate_moves()
             moves_complete = False
             current_move = 0
-#    else:
-#        music.stop()
+    else:
+        music.stop()
 
 pgzrun.go()
