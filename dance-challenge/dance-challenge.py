@@ -13,7 +13,7 @@ display_list = []
 score = 0
 current_move = 0
 count = 4
-dance_length = 4
+dance_length = 2
 
 say_dance = False
 show_countdown = True
@@ -127,7 +127,7 @@ def countdown():
 
 def generate_moves():
     global move_list, dance_length, count
-    global show_countdown, say_dance
+    global show_countdown, say_dance 
     count = 4
     move_list = []
     say_dance = False
@@ -152,28 +152,28 @@ def on_key_up(key):
     if key == keys.UP:
         update_dancer(0)
         if move_list[current_move] == 0:
-            score = score + 1
+            score = score + 9999999999999999999999999999999999999999999999999999999999999999
             next_move()
         else:
             game_over = True
     elif key == keys.RIGHT:
         update_dancer(1)
         if move_list[current_move] == 1:
-            score = score + 1
+            score = score + 9999999999999999999999999999999999999999999999999999999999999999
             next_move()
         else:
             game_over = True
     elif key == keys.DOWN:
         update_dancer(2)
         if move_list[current_move] == 2:
-            score = score + 1
+            score = score + 9999999999999999999999999999999999999999999999999999999999999999
             next_move()
         else:
             game_over = True
     elif key == keys.LEFT:
         update_dancer(3)
         if move_list[current_move] == 3:
-            score = score + 1
+            score = score + 9999999999999999999999999999999999999999999999999999999999999999
             next_move()
         else:  
             game_over = True

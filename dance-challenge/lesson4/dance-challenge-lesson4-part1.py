@@ -158,6 +158,7 @@ def update():
     global game_over, current_move, moves_complete
     if not game_over:
         if moves_complete:
+            generate_moves()
             moves_complete = False
             current_move = 0
     else:
