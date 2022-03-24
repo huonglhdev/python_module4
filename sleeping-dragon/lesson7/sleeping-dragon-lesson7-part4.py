@@ -114,6 +114,39 @@ def update():
         if hero.y < 0:
             hero.y = 0
 
+def update_lairs():
+    global lairs, hero, lives
+    for lair in lairs:
+        if lair["dragon"].image == "dragon-asleep":
+            update_sleeping_dragon(lair)
+        elif lair["dragon"].image == "dragon-awake":
+            update_waking_dragon(lair)
+        update_egg(lair)
+
+clock.schedule_interval(update_lairs, 1)
+
+def update_sleeping_dragon(lair):
+    if lair["sleep_counter"] >= lair["sleep_length"]:
+        lair["dragon"].image = "dragon-awake"
+        lair["sleep_counter"] = 0
+    else:
+        lair["sleep_counter"] += 1
+
+def update_waking_dragon(lair):
+    if lair["wake_counter"] >= DRAGON_WAKE_TIME:
+        lair["dragon"].image = "dragon-asleep"
+        lair["wake_counter"] = 0
+    else:
+        lair["wake_counter"] += 1
+
+def update_egg(lair):
+    if lair["egg_hidden"] is True:
+        if lair["egg_hide_counter"] >= EGG_HIDE_TIME:
+            lair["egg_hidden"] = False
+            lair["egg_hide_counter"] = 0
+        else:
+            lair["egg_hide_counter"] += 1
+
 def subtract_life():
     global lives, reset_required, game_over
     lives -= 1
