@@ -1,6 +1,7 @@
 from random import randint
 from pgzero import music
 import pgzrun
+import pygame
 
 WIDTH = 800
 HEIGHT = 600
@@ -34,6 +35,7 @@ left.pos = CENTER_X - 60, CENTER_Y + 170
 def draw():
     global game_over, score, say_dance
     global count, show_countdown
+    screen.surface = pygame.display.set_mode((WIDTH,HEIGHT))
     if not game_over:
         screen.clear()
         screen.blit("stage", (0, 0))
@@ -180,7 +182,8 @@ def on_key_up(key):
     return
 
 generate_moves()
-music.play('vanishing-horizon')
+#music.play('gieo-que')
+sounds.giaoque.play()
 def update():
     global game_over, current_move, moves_complete
     if not game_over:
